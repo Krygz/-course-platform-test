@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 @Entity
 @Table(name = "tb_course")
@@ -17,6 +19,8 @@ public class Course implements Serializable {
     private String name;
     private String imgUri;
     private String imgGrayUri;
+    @OneToMany(mappedBy = "course")
+    private List<Offer> offers = new ArrayList<>();
 
     public Course() {
     }
@@ -58,6 +62,10 @@ public class Course implements Serializable {
 
     public void setImgGrayUri(String imgGrayUri) {
         this.imgGrayUri = imgGrayUri;
+    }
+
+    public List<Offer> getOffers() {
+        return offers;
     }
 
     @Override
