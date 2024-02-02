@@ -19,3 +19,7 @@ INSERT INTO tb_course(name , img_Uri , img_Gray_Uri) VALUES ('Bootcamp Html' , '
 
 INSERT INTO tb_offer(edition , start_Moment , end_Moment , course_id) VALUES ('1.0',TIMESTAMP WITH TIME ZONE '2020-11-20T03:00:00Z' ,TIMESTAMP WITH TIME ZONE '2021-11-20T03:00:00Z','1' );
 INSERT INTO tb_offer(edition , start_Moment , end_Moment , course_id) VALUES ('2.0',TIMESTAMP WITH TIME ZONE '2021-11-20T03:00:00Z' ,TIMESTAMP WITH TIME ZONE '2025-11-20T03:00:00Z' ,'1');
+
+INSERT INTO tb_resource(title , description , position , img_Uri , type , offer_id) VALUES ('trilha Html' , 'trilha principal do curso', 1, 'https://static.vecteezy.com/system/resources/thumbnails/010/869/731/small/online-education-concept-illustration-digital-classroom-online-teaching-metaphors-free-png.png', 'LESSON_TASK', 1);
+INSERT INTO tb_resource(title , description , position , img_Uri , type , offer_id) VALUES ('Forum' , 'tire suas duvidas', 2, 'https://static.vecteezy.com/system/resources/thumbnails/010/869/731/small/online-education-concept-illustration-digital-classroom-online-teaching-metaphors-free-png.png', 'FORUM', 1);
+INSERT INTO tb_resource(title , description , position , img_Uri , type , offer_id) VALUES ('lives' , 'lives exclusivas', 3, 'https://static.vecteezy.com/system/resources/thumbnails/010/869/731/small/online-education-concept-illustration-digital-classroom-online-teaching-metaphors-free-png.png', 'LESSON_ONLY', 1);
