@@ -38,7 +38,7 @@ public class Topic implements Serializable {
     private Reply answer;
 
     @ManyToMany
-    @JoinTable(name = "tb_topics_likes",
+    @JoinTable(name = "tb_topic_likes",
     joinColumns = @JoinColumn(name = "topic_id"),
     inverseJoinColumns = @JoinColumn(name = "user_id"))
     private Set<User> likes = new HashSet<>();
