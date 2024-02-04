@@ -24,7 +24,7 @@ public class User implements Serializable {
     joinColumns = @JoinColumn(name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
-   @OneToMany(mappedBy = "user")
+   @OneToMany(mappedBy = "users")
     private List<Notification> notifications = new ArrayList<>();
 
     public User() {
@@ -77,6 +77,7 @@ public class User implements Serializable {
     public List<Notification> getNotifications() {
         return notifications;
     }
+
 
     @Override
     public boolean equals(Object o) {
