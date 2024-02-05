@@ -5,10 +5,7 @@ import jakarta.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_topic")
@@ -43,7 +40,7 @@ public class Topic implements Serializable {
     inverseJoinColumns = @JoinColumn(name = "user_id"))
     private Set<User> likes = new HashSet<>();
     @OneToMany(mappedBy = "topic")
-    private Set<Reply> replies = new HashSet<>();
+    private List<Reply> replies = new ArrayList<>();
 
     public Topic() {
     }

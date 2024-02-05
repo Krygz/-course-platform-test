@@ -24,7 +24,6 @@ public class Notification implements Serializable {
     @JoinColumn(name = "user_id")
     private User users;
 
-
     public Notification() {
     }
 
