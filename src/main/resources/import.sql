@@ -1,6 +1,6 @@
-INSERT INTO tb_user (name , email, password, role) VALUES ('Alex Brown', 'alex@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG','ROLE_ADMIN' );
-INSERT INTO tb_user (name , email, password, role) VALUES ('Maria Green', 'maria@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 'ROLE_INSTRUCTOR');
-INSERT INTO tb_user (name , email, password, role) VALUES ('Pedro Henrique', 'ph4290245@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 'ROLE_STUDENT');
+INSERT INTO tb_user (name , email, password, role) VALUES ('Alex Brown', 'alex@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG','ADMIN' );
+INSERT INTO tb_user (name , email, password, role) VALUES ('Maria Green', 'maria@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 'INSTRUCTOR');
+INSERT INTO tb_user (name , email, password, role) VALUES ('Pedro Henrique', 'ph4290245@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 'STUDENT');
 
 
 --INSERT INTO tb_role (authority) VALUES ('ROLE_STUDENT');

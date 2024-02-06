@@ -2,6 +2,9 @@ package com.course.platform.entities;
 
 import com.course.platform.enums.Role;
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -9,7 +12,7 @@ import java.util.*;
 
 @Entity
 @Table(name = "tb_user")
-public class User implements Serializable {
+public class User implements Serializable , UserDetails {
     @Serial
     private static final long serialVersionUID = 1L;
 @Id
@@ -32,6 +35,13 @@ public class User implements Serializable {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.role = role;
+    }
+
+    public User(String name, String email, String encryptedPassword, Role role) {
+        this.email = email;
+        this.name = name;
+        this.password = encryptedPassword;
         this.role = role;
     }
 
@@ -59,8 +69,46 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if(role == Role.ADMIN){
+            return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_INSTRUCTOR") , new SimpleGrantedAuthority("ROLE_STUDENT"));
+        }
+        else if(role == Role.INSTRUCTOR){
+            return List.of(new SimpleGrantedAuthority("ROLE_INSTRUCTOR"), new SimpleGrantedAuthority("ROLE_STUDENT"));
+        }
+        else{
+            return List.of(new SimpleGrantedAuthority("ROLE_STUDENT"));
+        }
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
     public void setPassword(String password) {
@@ -78,6 +126,8 @@ public class User implements Serializable {
     public List<Notification> getNotifications() {
         return notifications;
     }
+
+
 
 
     @Override

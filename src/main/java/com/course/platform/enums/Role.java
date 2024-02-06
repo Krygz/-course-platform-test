@@ -8,9 +8,9 @@ import java.util.Objects;
 
 
 public enum Role{
-    ROLE_STUDENT("student"),
-    ROLE_INSTRUCTOR("instructor") ,
-    ROLE_ADMIN("admin");
+    STUDENT("student"),
+    INSTRUCTOR("instructor") ,
+   ADMIN("admin");
 
     private String role;
 

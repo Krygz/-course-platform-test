@@ -21,6 +21,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Configuration
 @EnableWebMvc
 public class SecurityConfig {
+
+    private static final String ADMIN = "ADMIN";
+    private static final String INSTRUCTOR = "INSTRUCTOR";
     @Autowired
     private SecurityFilter securityFilter;
 
@@ -30,7 +33,11 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.POST , "/users").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST , "/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.POST , "/auth/register").permitAll()
+                        .requestMatchers(HttpMethod.POST , "/create/user").hasRole(ADMIN)
+                        .requestMatchers(HttpMethod.POST , "/create/course").hasRole(ADMIN)
+                        .requestMatchers(HttpMethod.POST , "/create/course").hasRole(INSTRUCTOR)
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter , UsernamePasswordAuthenticationFilter.class)
                 .build();
