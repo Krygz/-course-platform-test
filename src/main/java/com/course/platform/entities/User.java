@@ -1,7 +1,7 @@
 package com.course.platform.entities;
 
+import com.course.platform.enums.Role;
 import jakarta.persistence.*;
-import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -19,22 +19,20 @@ public class User implements Serializable {
     @Column(unique = true)
     private String email;
     private String password;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "tb_user_role",
-    joinColumns = @JoinColumn(name = "user_id"),
-    inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    @Enumerated(EnumType.STRING)
+    private Role role;
    @OneToMany(mappedBy = "users")
     private List<Notification> notifications = new ArrayList<>();
 
     public User() {
     }
 
-    public User(Long id, String name, String email, String password) {
+    public User(Long id, String name, String email, String password , Role role) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
     public Long getId() {
@@ -69,8 +67,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public List<Notification> getNotifications() {

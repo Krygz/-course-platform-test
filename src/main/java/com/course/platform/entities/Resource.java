@@ -1,10 +1,10 @@
 package com.course.platform.entities;
 
+import com.course.platform.enums.ResourceType;
 import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

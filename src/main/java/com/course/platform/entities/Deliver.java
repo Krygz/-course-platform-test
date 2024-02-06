@@ -1,5 +1,6 @@
 package com.course.platform.entities;
 
+import com.course.platform.enums.DeliverStatus;
 import jakarta.persistence.*;
 
 import java.io.Serial;

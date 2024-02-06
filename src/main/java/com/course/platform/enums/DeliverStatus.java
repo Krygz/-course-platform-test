@@ -1,4 +1,4 @@
-package com.course.platform.entities;
+package com.course.platform.enums;
 
 public enum DeliverStatus {
 
